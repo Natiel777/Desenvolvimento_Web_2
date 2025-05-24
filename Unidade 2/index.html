@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Web</title>
-    <link rel="stylesheet" href="estilo.css">
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <h1 id="titulo">Calculadora Digital</h1>
-    <div class="calculadora"></div>
-       <div id="tela">0</div>
-       <div class="bnt">
-        <button onclick="inserir('7')">7</button>
-        <button onclick="inserir('8')">8</button>
-        <button onclick="inserir('9')">9</button>
-        <button onclick="inserir('/')">/</button>
-<br>
-        <button onclick="inserir('4')">4</button>
-        <button onclick="inserir('5')">5</button>
-        <button onclick="inserir('6')">6</button>
-        <button onclick="inserir('*')">*</button>
-<br>
-        <button onclick="inserir('1')">1</button>
-        <button onclick="inserir('2')">2</button>
-        <button onclick="inserir('3')">3</button>
-        <button onclick="inserir('-')">-</button>
-<br>
-        <button onclick="inserir('0')">0</button>
-        <button onclick="inserir('.')">.</button>
-        <button onclick="inserir('=')">=</button>
-        <button onclick="inserir('+')">+</button> 
-        <br>
-        <button onclick="inserir('C')">C</button>
+  <!--Nome da calculadora-->
+  <h1 id="titulo">Calculadora Digital</h1>
+  
+  <div class="calculadora">
+    <!--Div que contém tela da calculadora-->
+    <div id="display" class="tela">0</div>
+    
+    <!--Div dos butões da calculadora-->
+    <div class="botoes">
+      <button onclick="limpar()" id="clear">C</button>
+      <button onclick="inserir('/')"><i class="fas fa-divide"></i></button>
+      <button onclick="inserir('*')"><i class="fas fa-xmark"></i></button>
+      <button onclick="inserir('-')"><i class="fas fa-minus"></i></button>
 
-    </div>
+      <button onclick="inserir('7')">7</button>
+      <button onclick="inserir('8')">8</button>
+      <button onclick="inserir('9')">9</button>
+      <button onclick="inserir('+')"><i class="fas fa-plus"></i></button>
 
+      <button onclick="inserir('4')">4</button>
+      <button onclick="inserir('5')">5</button>
+      <button onclick="inserir('6')">6</button>
+      <button onclick="calcular()" id="igual"><i class="fas fa-equals"></i></button>
+
+      <button onclick="inserir('1')">1</button>
+      <button onclick="inserir('2')">2</button>
+      <button onclick="inserir('3')">3</button>
+
+      <button onclick="inserir('0')" id="zero">0</button>
+      <button onclick="inserir('.')">.</button>
     </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
+     
