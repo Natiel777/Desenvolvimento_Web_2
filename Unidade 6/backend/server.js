@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const Database = require('better-sqlite3');
 
-// Inicializa o banco SQLite (arquivo filmes.db) e garante a existência da tabela
 const db = new Database('filmes.db');
 db.exec(`
   CREATE TABLE IF NOT EXISTS filmes (
@@ -36,7 +35,6 @@ app.post('/filmes', (req, res) => {
   }
 });
 
-// READ ALL
 app.get('/filmes', (req, res) => {
   try {
     const filmes = db.prepare('SELECT * FROM filmes').all();
@@ -47,7 +45,6 @@ app.get('/filmes', (req, res) => {
   }
 });
 
-// READ ONE
 app.get('/filmes/:id', (req, res) => {
   try {
     const filme = db.prepare('SELECT * FROM filmes WHERE id = ?').get(req.params.id);
@@ -60,7 +57,6 @@ app.get('/filmes/:id', (req, res) => {
   }
 });
 
-// UPDATE
 app.put('/filmes/:id', (req, res) => {
   const { titulo, genero, nota } = req.body;
   if (nota !== undefined && (typeof nota !== 'number' || nota < 0 || nota > 10)) {
@@ -87,7 +83,6 @@ app.put('/filmes/:id', (req, res) => {
   }
 });
 
-// DELETE
 app.delete('/filmes/:id', (req, res) => {
   try {
     const del = db.prepare('DELETE FROM filmes WHERE id = ?').run(req.params.id);
