@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Seus Filmes e Séries Favoritos</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <h1>Filmes e Séries Favoritos</h1>
+  <div class="container">
+
+    <div class="section">
+      <h3>Cadastro de Usuário</h3>
+      <input id="emailRegister" type="email" placeholder="Email">
+      <input id="senhaRegister" type="password" placeholder="Senha">
+      <button onclick="registerUser()">Cadastrar</button>
+    </div>
+
+    <div class="section">
+      <h3>Login</h3>
+      <input id="emailLogin" type="email" placeholder="Email">
+      <input id="senhaLogin" type="password" placeholder="Senha">
+      <button onclick="loginUser()">Entrar</button>
+    </div>
+
+  <div class="section">
+  <h3>Conta</h3>
+  <div class="btn-perfil">
+    <button onclick="getProfile()">Perfil</button>
+    <button onclick="logoutUser()">Logout</button>
+  </div>
+  <div id="profileInfo"></div>
+</div>
+
+    <div class="section">
+      <h3>Cadastrar Filme/Série</h3>
+      <input id="postTitulo" type="text" placeholder="Título">
+      <input id="postGenero" type="text" placeholder="Gênero">
+      <input id="postNota" type="number" min="0" max="10" placeholder="Nota (0–10)">
+      <button onclick="criarFilme()">Enviar</button>
+    </div>
+
+    <div class="section">
+      <h3>Atualizar Filme/Série</h3>
+      <input id="putId" type="number" placeholder="ID">
+      <input id="putTitulo" type="text" placeholder="Novo Título">
+      <input id="putGenero" type="text" placeholder="Novo Gênero">
+      <input id="putNota" type="number" min="0" max="10" placeholder="Nova Nota (0–10)">
+      <button onclick="atualizarFilme()">Enviar</button>
+    </div>
+
+    <div class="section">
+      <h3>Remover Filme/Série</h3>
+      <input id="deleteId" type="number" placeholder="ID do Filme/Série">
+      <button onclick="removerFilme()">Deletar</button>
+    </div>
+
+    <div class="section">
+      <h3>Buscar Filme/Série por ID</h3>
+      <input id="getId" type="number" placeholder="ID do Filme/Série">
+      <button onclick="buscarFilmePorId()">Buscar</button>
+      <div id="filmeEncontrado"></div>
+    </div>
+
+    <div class="section">
+      <h3>Listar Todos</h3>
+      <button id="botaomostrarTodos" onclick="mostrarFilmes()">Mostrar Todos</button>
+      <div id="filmesLista"></div>
+    </div>
+
+  </div>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
