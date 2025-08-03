@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Suas Finanças</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div id="logo">💰 Suas Finanças</div>
+      <nav>
+        <a href="#" title="Dashboard"><i class="fas fa-chart-line"></i></a>
+        <a href="#" title="Minha Conta"><i class="fas fa-user-cog"></i></a>
+        <a href="#" title="Sair" id="logout-btn"><i class="fas fa-sign-out-alt"></i></a>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <section>
+      <h2>Novo Lançamento</h2>
+      <form id="lancamentoForm">
+        <div>
+          <label for="tipo">Tipo</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione</option>
+            <option value="entrada">Entrada</option>
+            <option value="saida">Saída</option>
+          </select>
+        </div>
+        <div>
+          <label for="valor">Valor (R$)</label>
+          <input type="number" id="valor" name="valor" step="0.01" min="0" required>
+        </div>
+        <div>
+          <label for="categoria">Categoria</label>
+          <input type="text" id="categoria" name="categoria" required>
+        </div>
+        <div>
+          <label for="descricao">Descrição (opcional)</label>
+          <input type="text" id="descricao" name="descricao">
+        </div>
+        <div>
+          <label for="data">Data</label>
+          <input type="date" id="data" name="data" required>
+        </div>
+        <button type="submit">Registrar Lançamento</button>
+      </form>
+    </section>
+    <section class="filters">
+      <h2>Filtros</h2>
+      <select id="filtro-tipo">
+        <option value="">Todos os tipos</option>
+        <option value="entrada">Entradas</option>
+        <option value="saida">Saídas</option>
+      </select>
+      <input type="month" id="filtro-periodo">
+      <input type="text" id="filtro-categoria" placeholder="Filtrar por categoria">
+    </section>
+    <section>
+      <h2>Lista de Lançamentos</h2>
+      <table id="tabela-lancamentos">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Categoria</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Resumo</h2>
+      <div class="totals">
+        <div id="total-entradas">Total Entradas: R$ 0,00</div>
+        <div id="total-saidas">Total Saídas: R$ 0,00</div>
+        <div id="saldo-atual">Saldo Atual: R$ 0,00</div>
+      </div>
+    </section>
+    <section>
+      <h2>Gráficos</h2>
+      <div class="charts-container">
+        <div class="chart-box">
+          <h3>Total de Entradas por Categoria</h3>
+          <canvas id="grafico-entradas-categorias"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Total de Saídas por Categoria</h3>
+          <canvas id="grafico-categorias"></canvas>
+        </div>
+       <div class="chart-box barra">
+        <h3>Total por Período</h3>
+        <canvas id="grafico-periodo"></canvas>
+      </div>
+
+      </div>
+    </section>
+  </div>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Suas Finanças. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
